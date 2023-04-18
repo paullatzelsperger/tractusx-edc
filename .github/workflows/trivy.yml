@@ -18,6 +18,26 @@ on:
       - completed
 
 jobs:
+
+  evaluate-docker-flag:
+    name: "Evaluate whether docker images have been built or not"
+    runs-on: ubuntu-latest
+    outputs:
+      value: ${{ steps.read-flag.output.IS_DOCKER_BUILT
+    steps:
+      - name: "Download flag file"
+        uses: actions/download-artifact@v3
+        with:
+          # check build.yaml#L152
+          name: docker_build_flag
+      - name: Set the output
+        id: read-flag
+        run: |
+          FILE=docker_images_built.txt
+          if [ -f "$FILE" ]; then
+            echo "IS_DOCKER_BUILT=$(cat $FILE)" >> $GITHUB_OUTPUT
+          fi    
+
   git-sha7:
     name: Determine short git sha
     runs-on: ubuntu-latest

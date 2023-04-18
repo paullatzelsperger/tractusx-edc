@@ -137,6 +137,21 @@ jobs:
           docker_user: ${{ secrets.DOCKER_HUB_USER }}
           docker_token: ${{ secrets.DOCKER_HUB_TOKEN }}
 
+  set-docker-flag:
+    name: "Uploads a flag whether Docker images were created or not"
+    runs-on: ubuntu-latest
+    needs: [ build-controlplane, build-dataplane ]
+    steps:
+      - name: Save Docker flag
+        run: |
+          mkdir -p ./flags
+          echo "true" > ./flags/docker_images_built.txt
+      - uses: actions/upload-artifact@v3
+        name: "Set Flag to indicate Docker image build status"
+        with:
+          name: docker_build_flag
+          path: flags/
+
   publish-to-github-packages:
     runs-on: ubuntu-latest
     permissions:
