@@ -1,0 +1,37 @@
+---
+name: "Test stuff"
+on:
+  push:
+
+jobs:
+
+  docker-release:
+    name: Publish Docker images
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      RELEASE_VERSION: 5.5.5
+
+    strategy:
+      fail-fast: false
+      matrix:
+        variant: [ { dir: edc-controlplane, img: edc-runtime-memory },
+                   { dir: edc-controlplane, img: edc-controlplane-memory-hashicorp-vault },
+                   { dir: edc-controlplane, img: edc-controlplane-postgresql-hashicorp-vault },
+                   { dir: edc-controlplane, img: edc-controlplane-postgresql },
+                   { dir: edc-dataplane,    img: edc-dataplane-azure-vault },
+                   { dir: edc-dataplane,    img: edc-dataplane-hashicorp-vault } ]
+
+    steps:
+      - uses: actions/checkout@v3.3.0
+      - uses: ./.github/actions/publish-docker-image
+        name: Publish ${{ matrix.variant.img }}
+        with:
+          docker_tag: ${{ env.RELEASE_VERSION }}
+          rootDir: ${{ matrix.variant.dir }}/${{ matrix.variant.img }}
+          imagename: ${{ matrix.variant.img }}
+          namespace: "beardyinc"
+          docker_user: ${{ secrets.DOCKER_HUB_USER }}
+          docker_token: ${{ secrets.DOCKER_HUB_TOKEN }}
+
