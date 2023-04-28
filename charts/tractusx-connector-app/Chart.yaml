@@ -40,29 +40,26 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.3.2
+version: 0.3.4
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
-appVersion: "0.3.2"
+appVersion: "0.3.4"
 home: https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector-app
 sources:
   - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector-app
-
 dependencies:
   # EDC Connector Runtime (ControlPlane + DataPlane)
   - name: tractusx-connector
     version: "0.3.3"
     alias: runtime
     repository: "file://../tractusx-connector"
-
   # HashiCorp Vault
   - name: vault
     alias: vault
     version: 0.20.0
     repository: https://helm.releases.hashicorp.com
-
   # PostgreSQL
   - name: postgresql
     alias: postgresql
