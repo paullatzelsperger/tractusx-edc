@@ -1,6 +1,6 @@
 # tractusx-connector-azure-vault
 
-![Version: 0.4.1](https://img.shields.io/badge/Version-0.4.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.4.1](https://img.shields.io/badge/AppVersion-0.4.1-informational?style=flat-square)
+![Version: 0.5.0-rc1](https://img.shields.io/badge/Version-0.5.0--rc1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.5.0-rc1](https://img.shields.io/badge/AppVersion-0.5.0--rc1-informational?style=flat-square)
 
 A Helm chart for Tractus-X Eclipse Data Space Connector. The connector deployment consists of two runtime consists of a
 Control Plane and a Data Plane. Note that _no_ external dependencies such as a PostgreSQL database and Azure KeyVault are included.
@@ -38,7 +38,7 @@ Combined, run this shell command to start the in-memory Tractus-X EDC runtime:
 
 ```shell
 helm repo add tractusx-edc https://eclipse-tractusx.github.io/charts/dev
-helm install my-release tractusx-edc/tractusx-connector-azure-vault --version 0.4.1 \
+helm install my-release tractusx-edc/tractusx-connector-azure-vault --version 0.5.0-rc1 \
      -f <path-to>/tractusx-connector-azure-vault-test.yaml \
      --set vault.azure.name=$AZURE_VAULT_NAME \
      --set vault.azure.client=$AZURE_CLIENT_ID \
@@ -50,7 +50,7 @@ Note that `DAPS_CERT` contains the x509 certificate, `DAPS_KEY` contains the pri
 
 ## Source Code
 
-<https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector>
+* <https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector>
 
 ## Requirements
 
@@ -171,10 +171,9 @@ Note that `DAPS_CERT` contains the x509 certificate, `DAPS_KEY` contains the pri
 | daps.connectors[0].certificate | string | `""` |  |
 | daps.connectors[0].id | string | `"E7:07:2D:74:56:66:31:F0:7B:10:EA:B6:03:06:4C:23:7F:ED:A6:65:keyid:E7:07:2D:74:56:66:31:F0:7B:10:EA:B6:03:06:4C:23:7F:ED:A6:65"` |  |
 | daps.connectors[0].name | string | `"sokrates"` |  |
-| daps.fullnameOverride | string | `"daps"` |  |
 | daps.paths.jwks | string | `"/jwks.json"` |  |
 | daps.paths.token | string | `"/token"` |  |
-| daps.url | string | `""` |  |
+| daps.url | string | `"http://{{ .Release.Name }}-daps:4567"` |  |
 | dataplane.affinity | object | `{}` |  |
 | dataplane.autoscaling.enabled | bool | `false` | Enables [horizontal pod autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) |
 | dataplane.autoscaling.maxReplicas | int | `100` | Maximum replicas if resource consumption exceeds resource threshholds |
@@ -265,14 +264,15 @@ Note that `DAPS_CERT` contains the x509 certificate, `DAPS_KEY` contains the pri
 | postgresql.auth.password | string | `"password"` |  |
 | postgresql.auth.username | string | `"user"` |  |
 | postgresql.enabled | bool | `false` |  |
-| postgresql.fullnameOverride | string | `"postgresql"` |  |
-| postgresql.jdbcUrl | string | `""` |  |
+| postgresql.jdbcUrl | string | `"jdbc:postgresql://{{ .Release.Name }}-postgresql:5432/edc"` |  |
 | postgresql.primary.persistence | string | `nil` |  |
 | postgresql.readReplicas.persistence.enabled | bool | `false` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.imagePullSecrets | list | `[]` | Existing image pull secret bound to the service account to use to [obtain the container image from private registries](https://kubernetes.io/docs/concepts/containers/images/#using-a-private-registry) |
 | serviceAccount.name | string | `""` |  |
+| tests | object | `{"hookDeletePolicy":"before-hook-creation,hook-succeeded"}` | Configurations for Helm tests |
+| tests.hookDeletePolicy | string | `"before-hook-creation,hook-succeeded"` | Configure the hook-delete-policy for Helm tests |
 | vault.azure.certificate | string | `nil` |  |
 | vault.azure.client | string | `""` |  |
 | vault.azure.name | string | `""` |  |
