@@ -22,12 +22,27 @@
 name: "Verify"
 
 on:
-  workflow_call:
-  # Allows you to run this workflow manually from the Actions tab
+  push:
+    branches:
+      - main
+      - releases
+      - previews/*
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
+  release:
+    types:
+      - published
+  pull_request:
+    paths-ignore:
+      - 'charts/**'
   workflow_dispatch:
 
+concurrency:
+  # cancel older running jobs on the same branch
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  
   verify-license-headers:
     runs-on: ubuntu-latest
     steps:
@@ -89,50 +104,60 @@ jobs:
           markdownlint-cli2-config .markdownlint.yaml "**/*.md" "#.github" "#charts"
 
   unit-tests:
+    env:
+      JACOCO: true
     runs-on: ubuntu-latest
     needs: [ verify-formatting, verify-license-headers ]
     steps:
       - uses: actions/checkout@v3.5.2
-
       - uses: ./.github/actions/setup-java
-
       - name: Run Unit tests
-        run: ./gradlew test
+        uses: ./.github/actions/run-tests
+        with:
+          command: ./gradlew test
 
   integration-tests:
+    env:
+      JACOCO: true
     runs-on: ubuntu-latest
     needs: [ verify-formatting, verify-license-headers ]
     steps:
       - uses: actions/checkout@v3.5.2
-
       - uses: ./.github/actions/setup-java
-
       - name: Run Integration tests
-        run: ./gradlew test -DincludeTags="ComponentTest"
+        uses: ./.github/actions/run-tests
+        with:
+          command:  ./gradlew test -DincludeTags="ComponentTest"
 
   api-tests:
+    env:
+      JACOCO: true
     runs-on: ubuntu-latest
     needs: [ verify-formatting, verify-license-headers ]
     steps:
       - uses: actions/checkout@v3.5.2
-
       - uses: ./.github/actions/setup-java
-
       - name: Run API tests
-        run: ./gradlew test -DincludeTags="ApiTest"
+        uses: ./.github/actions/run-tests
+        with:
+          command: ./gradlew test -DincludeTags="ApiTest"
 
   end-to-end-tests:
+    env:
+      JACOCO: true
     runs-on: ubuntu-latest
     needs: [ verify-formatting, verify-license-headers ]
     steps:
       - uses: actions/checkout@v3.5.2
-
       - uses: ./.github/actions/setup-java
-
       - name: Run E2E tests
-        run: ./gradlew test -DincludeTags="EndToEndTest"
+        uses: ./.github/actions/run-tests
+        with:
+          command: ./gradlew test -DincludeTags="EndToEndTest"
 
   postgres-tests:
+    env:
+      JACOCO: true
     runs-on: ubuntu-latest
     needs: [ verify-formatting, verify-license-headers ]
 
@@ -158,4 +183,6 @@ jobs:
           PGPASSWORD: password
 
       - name: Run Postgresql E2E tests
-        run: ./gradlew test -DincludeTags="PostgresqlIntegrationTest"
+        uses: ./.github/actions/run-tests
+        with:
+          command: ./gradlew test -DincludeTags="PostgresqlIntegrationTest"

@@ -53,14 +53,47 @@ jobs:
     uses: ./.github/workflows/deployment-test.yaml
     secrets: inherit
 
-  # this job really serves no other purpose than waiting for the other two test workflows
-  # in future iterations, this could be used as a choke point to collect test data, etc.
-  summary:
-    needs:
-      - verify
-      - deployment-test
+  # once all tests have been completed successfull, we collect the Jacoco reports and publish to Sonar cloud
+#  sonar:
+#    needs:
+#      - verify
+#      - deployment-test
+#    runs-on: ubuntu-latest
+  sonar:
+    needs: [ verify, deployment-test ]
+    if: |
+      needs.secret-presence.outputs.SONAR_TOKEN
     runs-on: ubuntu-latest
     steps:
-      - name: 'Master test job'
-        run: echo "all test jobs have run by now"
+      # Set-Up
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup-java
+      - name: Cache SonarCloud packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
 
+      - name: Download JaCoCo Reports
+        uses: actions/download-artifact@v3
+        with:
+          path: artifacts
+
+      - name: List contents
+        run: |
+          ls -lnah artifacts
+          find . -name "index.html"
+      # Analyse
+      - name: Build with Gradle and analyze with Sonar
+        if: never()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          JACOCO: true
+        run: |-
+          ./gradlew testCodeCoverageReport sonar \
+            -Pcoverage,failsafe \
+            -Dsonar.projectKey=${{ vars.SONAR_PROJECT_KEY }} \
+            -Dsonar.organization=${{ vars.SONAR_ORGANIZATION }} \
+            -Dsonar.host.url=https://sonarcloud.io
