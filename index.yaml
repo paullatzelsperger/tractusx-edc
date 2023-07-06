@@ -3,13 +3,13 @@ entries:
   daps:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2023-07-05T18:03:32.352099973Z"
+    created: "2023-07-06T13:39:35.992512206Z"
     description: A Helm chart for Kubernetes
     digest: a6ef8f7a86aba987dc64f30cf90572b369292fc540bc5ef77eac0e026bb17b28
     name: daps
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/daps-0.0.1.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/daps-0.0.1.tgz
     version: 0.0.1
   edc-controlplane:
   - apiVersion: v2
@@ -70,7 +70,7 @@ entries:
   tractusx-connector:
   - apiVersion: v2
     appVersion: 0.5.0-rc5
-    created: "2023-07-05T18:03:32.422506456Z"
+    created: "2023-07-06T13:39:36.061996312Z"
     dependencies:
     - alias: vault
       condition: install.vault
@@ -94,11 +94,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-0.5.0-rc5.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-0.5.0-rc5.tgz
     version: 0.5.0-rc5
   - apiVersion: v2
     appVersion: 0.5.0-rc4
-    created: "2023-07-05T18:03:32.41281712Z"
+    created: "2023-07-06T13:39:36.051729668Z"
     dependencies:
     - alias: vault
       condition: install.vault
@@ -122,11 +122,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-0.5.0-rc4.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-0.5.0-rc4.tgz
     version: 0.5.0-rc4
   - apiVersion: v2
     appVersion: 0.5.0-rc3
-    created: "2023-07-05T18:03:32.402141624Z"
+    created: "2023-07-06T13:39:36.041356319Z"
     dependencies:
     - alias: vault
       condition: install.vault
@@ -150,11 +150,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-0.5.0-rc3.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-0.5.0-rc3.tgz
     version: 0.5.0-rc3
   - apiVersion: v2
     appVersion: 0.5.0-rc2
-    created: "2023-07-05T18:03:32.391702095Z"
+    created: "2023-07-06T13:39:36.031646399Z"
     dependencies:
     - alias: vault
       condition: install.vault
@@ -178,11 +178,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-0.5.0-rc2.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-0.5.0-rc2.tgz
     version: 0.5.0-rc2
   - apiVersion: v2
     appVersion: 0.5.0-rc1
-    created: "2023-07-05T18:03:32.381200974Z"
+    created: "2023-07-06T13:39:36.020533318Z"
     dependencies:
     - alias: vault
       condition: install.vault
@@ -206,11 +206,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-0.5.0-rc1.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-0.5.0-rc1.tgz
     version: 0.5.0-rc1
   - apiVersion: v2
     appVersion: 0.4.1
-    created: "2023-07-05T18:03:32.371438749Z"
+    created: "2023-07-06T13:39:36.010108468Z"
     dependencies:
     - alias: daps
       condition: install.daps
@@ -239,11 +239,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-0.4.1.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-0.4.1.tgz
     version: 0.4.1
   - apiVersion: v2
     appVersion: 0.4.0
-    created: "2023-07-05T18:03:32.35929436Z"
+    created: "2023-07-06T13:39:35.998630271Z"
     description: 'A Helm chart for Tractus-X Eclipse Data Space Connector. The connector
       deployment consists of two runtime consists of a Control Plane and a Data Plane.
       Note that _no_ external dependencies such as a PostgreSQL database and HashiCorp
@@ -256,11 +256,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-0.4.0.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-0.4.0.tgz
     version: 0.4.0
   - apiVersion: v2
     appVersion: 0.3.4
-    created: "2023-07-05T18:03:32.356041518Z"
+    created: "2023-07-06T13:39:35.996689487Z"
     description: 'A Helm chart for Tractus-X Eclipse Data Space Connector. The connector
       deployment consists of two runtime consists of a Control Plane and a Data Plane.
       Note that _no_ external dependencies such as a PostgreSQL database and HashiCorp
@@ -273,11 +273,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-0.3.4.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-0.3.4.tgz
     version: 0.3.4
   - apiVersion: v2
     appVersion: 0.3.3
-    created: "2023-07-05T18:03:32.354063297Z"
+    created: "2023-07-06T13:39:35.994754503Z"
     description: A Helm chart for Tractus-X Eclipse Data Space Connector
     digest: 74d55891a0323b4b75b641fecc76473655f8846d425bd0be8d8328e96ad8518e
     home: https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector
@@ -286,7 +286,7 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-0.3.3.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-0.3.3.tgz
     version: 0.3.3
   - apiVersion: v2
     appVersion: 0.3.2
@@ -304,7 +304,7 @@ entries:
   tractusx-connector-azure-vault:
   - apiVersion: v2
     appVersion: 0.5.0-rc5
-    created: "2023-07-05T18:03:32.475247226Z"
+    created: "2023-07-06T13:39:36.11049711Z"
     dependencies:
     - alias: postgresql
       condition: install.postgresql
@@ -323,11 +323,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-azure-vault-0.5.0-rc5.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-azure-vault-0.5.0-rc5.tgz
     version: 0.5.0-rc5
   - apiVersion: v2
     appVersion: 0.5.0-rc4
-    created: "2023-07-05T18:03:32.468717746Z"
+    created: "2023-07-06T13:39:36.101865836Z"
     dependencies:
     - alias: postgresql
       condition: install.postgresql
@@ -346,11 +346,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-azure-vault-0.5.0-rc4.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-azure-vault-0.5.0-rc4.tgz
     version: 0.5.0-rc4
   - apiVersion: v2
     appVersion: 0.5.0-rc3
-    created: "2023-07-05T18:03:32.461640243Z"
+    created: "2023-07-06T13:39:36.094960138Z"
     dependencies:
     - alias: postgresql
       condition: install.postgresql
@@ -369,11 +369,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-azure-vault-0.5.0-rc3.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-azure-vault-0.5.0-rc3.tgz
     version: 0.5.0-rc3
   - apiVersion: v2
     appVersion: 0.5.0-rc2
-    created: "2023-07-05T18:03:32.454983081Z"
+    created: "2023-07-06T13:39:36.087483714Z"
     dependencies:
     - alias: postgresql
       condition: install.postgresql
@@ -392,11 +392,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-azure-vault-0.5.0-rc2.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-azure-vault-0.5.0-rc2.tgz
     version: 0.5.0-rc2
   - apiVersion: v2
     appVersion: 0.5.0-rc1
-    created: "2023-07-05T18:03:32.447505834Z"
+    created: "2023-07-06T13:39:36.080461111Z"
     dependencies:
     - alias: postgresql
       condition: install.postgresql
@@ -415,11 +415,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-azure-vault-0.5.0-rc1.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-azure-vault-0.5.0-rc1.tgz
     version: 0.5.0-rc1
   - apiVersion: v2
     appVersion: 0.4.1
-    created: "2023-07-05T18:03:32.440874168Z"
+    created: "2023-07-06T13:39:36.073945229Z"
     dependencies:
     - alias: daps
       condition: install.daps
@@ -443,11 +443,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-azure-vault-0.4.1.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-azure-vault-0.4.1.tgz
     version: 0.4.1
   - apiVersion: v2
     appVersion: 0.4.0
-    created: "2023-07-05T18:03:32.42744416Z"
+    created: "2023-07-06T13:39:36.065785776Z"
     description: 'A Helm chart for Tractus-X Eclipse Data Space Connector. The connector
       deployment consists of two runtime consists of a Control Plane and a Data Plane.
       Note that _no_ external dependencies such as a PostgreSQL database and Azure
@@ -460,11 +460,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-azure-vault-0.4.0.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-azure-vault-0.4.0.tgz
     version: 0.4.0
   - apiVersion: v2
     appVersion: 0.3.4
-    created: "2023-07-05T18:03:32.425553526Z"
+    created: "2023-07-06T13:39:36.063905494Z"
     description: 'A Helm chart for Tractus-X Eclipse Data Space Connector. The connector
       deployment consists of two runtime consists of a Control Plane and a Data Plane.
       Note that _no_ external dependencies such as a PostgreSQL database and Azure
@@ -477,12 +477,12 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-azure-vault-0.3.4.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-azure-vault-0.3.4.tgz
     version: 0.3.4
   tractusx-connector-legacy:
   - apiVersion: v2
     appVersion: 0.5.0-rc5
-    created: "2023-07-05T18:03:32.531262036Z"
+    created: "2023-07-06T13:39:36.166504472Z"
     dependencies:
     - alias: daps
       condition: install.daps
@@ -515,11 +515,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector-legacy
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-legacy-0.5.0-rc5.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-legacy-0.5.0-rc5.tgz
     version: 0.5.0-rc5
   - apiVersion: v2
     appVersion: 0.5.0-rc4
-    created: "2023-07-05T18:03:32.520605637Z"
+    created: "2023-07-06T13:39:36.155529722Z"
     dependencies:
     - alias: daps
       condition: install.daps
@@ -552,11 +552,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector-legacy
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-legacy-0.5.0-rc4.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-legacy-0.5.0-rc4.tgz
     version: 0.5.0-rc4
   - apiVersion: v2
     appVersion: 0.5.0-rc3
-    created: "2023-07-05T18:03:32.509301329Z"
+    created: "2023-07-06T13:39:36.144558471Z"
     dependencies:
     - alias: daps
       condition: install.daps
@@ -589,11 +589,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector-legacy
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-legacy-0.5.0-rc3.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-legacy-0.5.0-rc3.tgz
     version: 0.5.0-rc3
   - apiVersion: v2
     appVersion: 0.5.0-rc2
-    created: "2023-07-05T18:03:32.49765567Z"
+    created: "2023-07-06T13:39:36.133245243Z"
     dependencies:
     - alias: daps
       condition: install.daps
@@ -626,11 +626,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector-legacy
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-legacy-0.5.0-rc2.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-legacy-0.5.0-rc2.tgz
     version: 0.5.0-rc2
   - apiVersion: v2
     appVersion: 0.5.0-rc1
-    created: "2023-07-05T18:03:32.486570631Z"
+    created: "2023-07-06T13:39:36.122808642Z"
     dependencies:
     - alias: daps
       condition: install.daps
@@ -663,12 +663,12 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector-legacy
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-legacy-0.5.0-rc1.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-legacy-0.5.0-rc1.tgz
     version: 0.5.0-rc1
   tractusx-connector-memory:
   - apiVersion: v2
     appVersion: 0.5.0-rc5
-    created: "2023-07-05T18:03:32.54528786Z"
+    created: "2023-07-06T13:39:36.180605396Z"
     description: A Helm chart for Tractus-X Eclipse Data Space Connector based on
       memory. Please only use this for development or testing purposes, never in production
       workloads!
@@ -679,11 +679,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector-memory
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-memory-0.5.0-rc5.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-memory-0.5.0-rc5.tgz
     version: 0.5.0-rc5
   - apiVersion: v2
     appVersion: 0.5.0-rc4
-    created: "2023-07-05T18:03:32.543662189Z"
+    created: "2023-07-06T13:39:36.179239288Z"
     description: A Helm chart for Tractus-X Eclipse Data Space Connector based on
       memory. Please only use this for development or testing purposes, never in production
       workloads!
@@ -694,11 +694,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector-memory
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-memory-0.5.0-rc4.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-memory-0.5.0-rc4.tgz
     version: 0.5.0-rc4
   - apiVersion: v2
     appVersion: 0.5.0-rc3
-    created: "2023-07-05T18:03:32.542311879Z"
+    created: "2023-07-06T13:39:36.177891373Z"
     description: A Helm chart for Tractus-X Eclipse Data Space Connector based on
       memory. Please only use this for development or testing purposes, never in production
       workloads!
@@ -709,11 +709,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector-memory
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-memory-0.5.0-rc3.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-memory-0.5.0-rc3.tgz
     version: 0.5.0-rc3
   - apiVersion: v2
     appVersion: 0.5.0-rc2
-    created: "2023-07-05T18:03:32.540916676Z"
+    created: "2023-07-06T13:39:36.176423701Z"
     description: A Helm chart for Tractus-X Eclipse Data Space Connector based on
       memory. Please only use this for development or testing purposes, never in production
       workloads!
@@ -724,11 +724,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector-memory
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-memory-0.5.0-rc2.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-memory-0.5.0-rc2.tgz
     version: 0.5.0-rc2
   - apiVersion: v2
     appVersion: 0.5.0-rc1
-    created: "2023-07-05T18:03:32.539526572Z"
+    created: "2023-07-06T13:39:36.173880717Z"
     description: A Helm chart for Tractus-X Eclipse Data Space Connector based on
       memory. Please only use this for development or testing purposes, never in production
       workloads!
@@ -739,11 +739,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector-memory
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-memory-0.5.0-rc1.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-memory-0.5.0-rc1.tgz
     version: 0.5.0-rc1
   - apiVersion: v2
     appVersion: 0.4.1
-    created: "2023-07-05T18:03:32.538152265Z"
+    created: "2023-07-06T13:39:36.17251061Z"
     dependencies:
     - alias: daps
       condition: install.daps
@@ -760,11 +760,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector-memory
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-memory-0.4.1.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-memory-0.4.1.tgz
     version: 0.4.1
   - apiVersion: v2
     appVersion: 0.4.0
-    created: "2023-07-05T18:03:32.536055561Z"
+    created: "2023-07-06T13:39:36.170432958Z"
     description: A Helm chart for Tractus-X Eclipse Data Space Connector based on
       memory. Please only use this for development or testing purposes, never in production
       workloads!
@@ -775,11 +775,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector-memory
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-memory-0.4.0.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-memory-0.4.0.tgz
     version: 0.4.0
   - apiVersion: v2
     appVersion: 0.3.4
-    created: "2023-07-05T18:03:32.534549373Z"
+    created: "2023-07-06T13:39:36.169105835Z"
     description: A Helm chart for Tractus-X Eclipse Data Space Connector based on
       memory. Please only use this for development or testing purposes, never in production
       workloads!
@@ -790,11 +790,11 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector-memory
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-memory-0.3.4.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-memory-0.3.4.tgz
     version: 0.3.4
   - apiVersion: v2
     appVersion: 0.3.3
-    created: "2023-07-05T18:03:32.532608946Z"
+    created: "2023-07-06T13:39:36.167811601Z"
     description: A Helm chart for Tractus-X Eclipse Data Space Connector based on
       memory
     digest: 0d5ad6c439c7ad0dd2e6b1d0adc06a0d8a27b2c5518154bb0dc3e2a9952a89e8
@@ -804,6 +804,6 @@ entries:
     - https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector-memory
     type: application
     urls:
-    - https://eclipse-tractusx.github.io/tractusx-edc/helm-charts/tractusx-connector-memory-0.3.3.tgz
+    - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-memory-0.3.3.tgz
     version: 0.3.3
-generated: "2023-07-05T18:03:32.351281489Z"
+generated: "2023-07-06T13:39:35.990855335Z"
