@@ -3,7 +3,7 @@ entries:
   daps:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2023-07-06T13:39:35.992512206Z"
+    created: "2023-07-06T14:13:31.972077669Z"
     description: A Helm chart for Kubernetes
     digest: a6ef8f7a86aba987dc64f30cf90572b369292fc540bc5ef77eac0e026bb17b28
     name: daps
@@ -70,7 +70,7 @@ entries:
   tractusx-connector:
   - apiVersion: v2
     appVersion: 0.5.0-rc5
-    created: "2023-07-06T13:39:36.061996312Z"
+    created: "2023-07-06T14:13:32.04602971Z"
     dependencies:
     - alias: vault
       condition: install.vault
@@ -98,7 +98,7 @@ entries:
     version: 0.5.0-rc5
   - apiVersion: v2
     appVersion: 0.5.0-rc4
-    created: "2023-07-06T13:39:36.051729668Z"
+    created: "2023-07-06T14:13:32.035507619Z"
     dependencies:
     - alias: vault
       condition: install.vault
@@ -126,7 +126,7 @@ entries:
     version: 0.5.0-rc4
   - apiVersion: v2
     appVersion: 0.5.0-rc3
-    created: "2023-07-06T13:39:36.041356319Z"
+    created: "2023-07-06T14:13:32.025278134Z"
     dependencies:
     - alias: vault
       condition: install.vault
@@ -154,7 +154,7 @@ entries:
     version: 0.5.0-rc3
   - apiVersion: v2
     appVersion: 0.5.0-rc2
-    created: "2023-07-06T13:39:36.031646399Z"
+    created: "2023-07-06T14:13:32.013772525Z"
     dependencies:
     - alias: vault
       condition: install.vault
@@ -182,7 +182,7 @@ entries:
     version: 0.5.0-rc2
   - apiVersion: v2
     appVersion: 0.5.0-rc1
-    created: "2023-07-06T13:39:36.020533318Z"
+    created: "2023-07-06T14:13:32.002795026Z"
     dependencies:
     - alias: vault
       condition: install.vault
@@ -210,7 +210,7 @@ entries:
     version: 0.5.0-rc1
   - apiVersion: v2
     appVersion: 0.4.1
-    created: "2023-07-06T13:39:36.010108468Z"
+    created: "2023-07-06T14:13:31.992251235Z"
     dependencies:
     - alias: daps
       condition: install.daps
@@ -243,7 +243,7 @@ entries:
     version: 0.4.1
   - apiVersion: v2
     appVersion: 0.4.0
-    created: "2023-07-06T13:39:35.998630271Z"
+    created: "2023-07-06T14:13:31.979052295Z"
     description: 'A Helm chart for Tractus-X Eclipse Data Space Connector. The connector
       deployment consists of two runtime consists of a Control Plane and a Data Plane.
       Note that _no_ external dependencies such as a PostgreSQL database and HashiCorp
@@ -260,7 +260,7 @@ entries:
     version: 0.4.0
   - apiVersion: v2
     appVersion: 0.3.4
-    created: "2023-07-06T13:39:35.996689487Z"
+    created: "2023-07-06T14:13:31.976411647Z"
     description: 'A Helm chart for Tractus-X Eclipse Data Space Connector. The connector
       deployment consists of two runtime consists of a Control Plane and a Data Plane.
       Note that _no_ external dependencies such as a PostgreSQL database and HashiCorp
@@ -277,7 +277,7 @@ entries:
     version: 0.3.4
   - apiVersion: v2
     appVersion: 0.3.3
-    created: "2023-07-06T13:39:35.994754503Z"
+    created: "2023-07-06T14:13:31.974031404Z"
     description: A Helm chart for Tractus-X Eclipse Data Space Connector
     digest: 74d55891a0323b4b75b641fecc76473655f8846d425bd0be8d8328e96ad8518e
     home: https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector
@@ -304,7 +304,7 @@ entries:
   tractusx-connector-azure-vault:
   - apiVersion: v2
     appVersion: 0.5.0-rc5
-    created: "2023-07-06T13:39:36.11049711Z"
+    created: "2023-07-06T14:13:32.092176547Z"
     dependencies:
     - alias: postgresql
       condition: install.postgresql
@@ -327,7 +327,7 @@ entries:
     version: 0.5.0-rc5
   - apiVersion: v2
     appVersion: 0.5.0-rc4
-    created: "2023-07-06T13:39:36.101865836Z"
+    created: "2023-07-06T14:13:32.085523727Z"
     dependencies:
     - alias: postgresql
       condition: install.postgresql
@@ -350,7 +350,7 @@ entries:
     version: 0.5.0-rc4
   - apiVersion: v2
     appVersion: 0.5.0-rc3
-    created: "2023-07-06T13:39:36.094960138Z"
+    created: "2023-07-06T14:13:32.078333596Z"
     dependencies:
     - alias: postgresql
       condition: install.postgresql
@@ -373,7 +373,7 @@ entries:
     version: 0.5.0-rc3
   - apiVersion: v2
     appVersion: 0.5.0-rc2
-    created: "2023-07-06T13:39:36.087483714Z"
+    created: "2023-07-06T14:13:32.071827878Z"
     dependencies:
     - alias: postgresql
       condition: install.postgresql
@@ -396,7 +396,7 @@ entries:
     version: 0.5.0-rc2
   - apiVersion: v2
     appVersion: 0.5.0-rc1
-    created: "2023-07-06T13:39:36.080461111Z"
+    created: "2023-07-06T14:13:32.064365243Z"
     dependencies:
     - alias: postgresql
       condition: install.postgresql
@@ -419,7 +419,7 @@ entries:
     version: 0.5.0-rc1
   - apiVersion: v2
     appVersion: 0.4.1
-    created: "2023-07-06T13:39:36.073945229Z"
+    created: "2023-07-06T14:13:32.057920026Z"
     dependencies:
     - alias: daps
       condition: install.daps
@@ -447,7 +447,7 @@ entries:
     version: 0.4.1
   - apiVersion: v2
     appVersion: 0.4.0
-    created: "2023-07-06T13:39:36.065785776Z"
+    created: "2023-07-06T14:13:32.050330088Z"
     description: 'A Helm chart for Tractus-X Eclipse Data Space Connector. The connector
       deployment consists of two runtime consists of a Control Plane and a Data Plane.
       Note that _no_ external dependencies such as a PostgreSQL database and Azure
@@ -464,7 +464,7 @@ entries:
     version: 0.4.0
   - apiVersion: v2
     appVersion: 0.3.4
-    created: "2023-07-06T13:39:36.063905494Z"
+    created: "2023-07-06T14:13:32.048017946Z"
     description: 'A Helm chart for Tractus-X Eclipse Data Space Connector. The connector
       deployment consists of two runtime consists of a Control Plane and a Data Plane.
       Note that _no_ external dependencies such as a PostgreSQL database and Azure
@@ -482,7 +482,7 @@ entries:
   tractusx-connector-legacy:
   - apiVersion: v2
     appVersion: 0.5.0-rc5
-    created: "2023-07-06T13:39:36.166504472Z"
+    created: "2023-07-06T14:13:32.146944441Z"
     dependencies:
     - alias: daps
       condition: install.daps
@@ -519,7 +519,7 @@ entries:
     version: 0.5.0-rc5
   - apiVersion: v2
     appVersion: 0.5.0-rc4
-    created: "2023-07-06T13:39:36.155529722Z"
+    created: "2023-07-06T14:13:32.135809239Z"
     dependencies:
     - alias: daps
       condition: install.daps
@@ -556,7 +556,7 @@ entries:
     version: 0.5.0-rc4
   - apiVersion: v2
     appVersion: 0.5.0-rc3
-    created: "2023-07-06T13:39:36.144558471Z"
+    created: "2023-07-06T14:13:32.125612054Z"
     dependencies:
     - alias: daps
       condition: install.daps
@@ -593,7 +593,7 @@ entries:
     version: 0.5.0-rc3
   - apiVersion: v2
     appVersion: 0.5.0-rc2
-    created: "2023-07-06T13:39:36.133245243Z"
+    created: "2023-07-06T14:13:32.114155046Z"
     dependencies:
     - alias: daps
       condition: install.daps
@@ -630,7 +630,7 @@ entries:
     version: 0.5.0-rc2
   - apiVersion: v2
     appVersion: 0.5.0-rc1
-    created: "2023-07-06T13:39:36.122808642Z"
+    created: "2023-07-06T14:13:32.103027644Z"
     dependencies:
     - alias: daps
       condition: install.daps
@@ -668,7 +668,7 @@ entries:
   tractusx-connector-memory:
   - apiVersion: v2
     appVersion: 0.5.0-rc5
-    created: "2023-07-06T13:39:36.180605396Z"
+    created: "2023-07-06T14:13:32.1612269Z"
     description: A Helm chart for Tractus-X Eclipse Data Space Connector based on
       memory. Please only use this for development or testing purposes, never in production
       workloads!
@@ -683,7 +683,7 @@ entries:
     version: 0.5.0-rc5
   - apiVersion: v2
     appVersion: 0.5.0-rc4
-    created: "2023-07-06T13:39:36.179239288Z"
+    created: "2023-07-06T14:13:32.159876376Z"
     description: A Helm chart for Tractus-X Eclipse Data Space Connector based on
       memory. Please only use this for development or testing purposes, never in production
       workloads!
@@ -698,7 +698,7 @@ entries:
     version: 0.5.0-rc4
   - apiVersion: v2
     appVersion: 0.5.0-rc3
-    created: "2023-07-06T13:39:36.177891373Z"
+    created: "2023-07-06T14:13:32.15848335Z"
     description: A Helm chart for Tractus-X Eclipse Data Space Connector based on
       memory. Please only use this for development or testing purposes, never in production
       workloads!
@@ -713,7 +713,7 @@ entries:
     version: 0.5.0-rc3
   - apiVersion: v2
     appVersion: 0.5.0-rc2
-    created: "2023-07-06T13:39:36.176423701Z"
+    created: "2023-07-06T14:13:32.157100325Z"
     description: A Helm chart for Tractus-X Eclipse Data Space Connector based on
       memory. Please only use this for development or testing purposes, never in production
       workloads!
@@ -728,7 +728,7 @@ entries:
     version: 0.5.0-rc2
   - apiVersion: v2
     appVersion: 0.5.0-rc1
-    created: "2023-07-06T13:39:36.173880717Z"
+    created: "2023-07-06T14:13:32.1557095Z"
     description: A Helm chart for Tractus-X Eclipse Data Space Connector based on
       memory. Please only use this for development or testing purposes, never in production
       workloads!
@@ -743,7 +743,7 @@ entries:
     version: 0.5.0-rc1
   - apiVersion: v2
     appVersion: 0.4.1
-    created: "2023-07-06T13:39:36.17251061Z"
+    created: "2023-07-06T14:13:32.154261174Z"
     dependencies:
     - alias: daps
       condition: install.daps
@@ -764,7 +764,7 @@ entries:
     version: 0.4.1
   - apiVersion: v2
     appVersion: 0.4.0
-    created: "2023-07-06T13:39:36.170432958Z"
+    created: "2023-07-06T14:13:32.150976514Z"
     description: A Helm chart for Tractus-X Eclipse Data Space Connector based on
       memory. Please only use this for development or testing purposes, never in production
       workloads!
@@ -779,7 +779,7 @@ entries:
     version: 0.4.0
   - apiVersion: v2
     appVersion: 0.3.4
-    created: "2023-07-06T13:39:36.169105835Z"
+    created: "2023-07-06T14:13:32.14964199Z"
     description: A Helm chart for Tractus-X Eclipse Data Space Connector based on
       memory. Please only use this for development or testing purposes, never in production
       workloads!
@@ -794,7 +794,7 @@ entries:
     version: 0.3.4
   - apiVersion: v2
     appVersion: 0.3.3
-    created: "2023-07-06T13:39:36.167811601Z"
+    created: "2023-07-06T14:13:32.148275165Z"
     description: A Helm chart for Tractus-X Eclipse Data Space Connector based on
       memory
     digest: 0d5ad6c439c7ad0dd2e6b1d0adc06a0d8a27b2c5518154bb0dc3e2a9952a89e8
@@ -806,4 +806,4 @@ entries:
     urls:
     - https://paullatzelsperger.github.io/tractusx-edc/helm-charts/tractusx-connector-memory-0.3.3.tgz
     version: 0.3.3
-generated: "2023-07-06T13:39:35.990855335Z"
+generated: "2023-07-06T14:13:31.966365665Z"
