@@ -60,66 +60,26 @@ jobs:
   maven-release:
     name: Publish extension's release version to maven repository
     needs: [ release-version ]
-    runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
-    if: github.event.pull_request.merged == true && needs.release-version.outputs.RELEASE_VERSION
-    steps:
-      - name: Export RELEASE_VERSION env
-        run: |
-          echo "RELEASE_VERSION=${{ needs.release-version.outputs.RELEASE_VERSION }}" >> $GITHUB_ENV
-
-      # Set-Up
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup-java
-
-      # Import GPG Key
-      - uses: ./.github/actions/import-gpg-key
-        name: "Import GPG Key"
-        with:
-          gpg-private-key: ${{ secrets.ORG_GPG_PRIVATE_KEY }}
-
-      # publish releases
-      - name: Publish version
-        env:
-          OSSRH_PASSWORD: ${{ secrets.ORG_OSSRH_PASSWORD }}
-          OSSRH_USER: ${{ secrets.ORG_OSSRH_USERNAME }}
-        run: |-
-          echo "Publishing Version $RELEASE_VERSION to Sonatype/MavenCentral"
-          ./gradlew publishToSonatype closeAndReleaseSonatypeStagingRepository --no-parallel -Pversion=$RELEASE_VERSION -Psigning.gnupg.executable=gpg -Psigning.gnupg.passphrase="${{ secrets.ORG_GPG_PASSPHRASE }}"
+    if: false &&  github.event.pull_request.merged == true && needs.release-version.outputs.RELEASE_VERSION
+    uses: ./.github/workflows/trigger-maven-publish.yaml
+    secrets: inherit
+    with:
+      version: $RELEASE_VERSION
 
   docker-release:
     name: Publish Docker images
-    runs-on: ubuntu-latest
     needs: [ release-version ]
     permissions:
       contents: write
-    if: github.event.pull_request.merged == true && needs.release-version.outputs.RELEASE_VERSION
+    if: false && github.event.pull_request.merged == true && needs.release-version.outputs.RELEASE_VERSION
 
-    strategy:
-      fail-fast: false
-      matrix:
-        variant: [ { dir: edc-controlplane, img: edc-runtime-memory },
-                   { dir: edc-controlplane, img: edc-controlplane-postgresql-hashicorp-vault },
-                   { dir: edc-controlplane, img: edc-controlplane-postgresql-azure-vault },
-                   { dir: edc-dataplane,    img: edc-dataplane-azure-vault },
-                   { dir: edc-dataplane,    img: edc-dataplane-hashicorp-vault },
-                   { dir: edc-tests/runtime, img: mock-connector }]
-    steps:
-      - uses: actions/checkout@v4
-      - name: Export RELEASE_VERSION env
-        run: |
-          echo "RELEASE_VERSION=${{ needs.release-version.outputs.RELEASE_VERSION }}" >> $GITHUB_ENV
-      - uses: ./.github/actions/publish-docker-image
-        name: Publish ${{ matrix.variant.img }}
-        with:
-          docker_tag: ${{ env.RELEASE_VERSION }}
-          rootDir: ${{ matrix.variant.dir }}/${{ matrix.variant.img }}
-          imagename: ${{ matrix.variant.img }}
-          docker_user: ${{ secrets.DOCKER_HUB_USER }}
-          docker_token: ${{ secrets.DOCKER_HUB_TOKEN }}
-          do_push: 'true'
+    uses: ./.github/workflows/trigger-docker-publish.yaml
+    secrets: inherit
+    with:
+      docker_tag: $RELEASE_VERSION
 
   # Release: Helm Charts
   helm-release:
@@ -131,7 +91,7 @@ jobs:
       packages: write
       pages: write
 
-    if: github.event.pull_request.merged == true && needs.release-version.outputs.RELEASE_VERSION
+    if: false && github.event.pull_request.merged == true && needs.release-version.outputs.RELEASE_VERSION
     steps:
       - name: Export RELEASE_VERSION env
         run: |
@@ -167,7 +127,7 @@ jobs:
   # Release: GitHub tag & release; Merges back releases into main; Starts a new development cycle;
   github-release:
     name: Publish new github release
-    needs: [ release-version, maven-release, docker-release, helm-release ]
+    needs: [ release-version ]
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -206,7 +166,11 @@ jobs:
           makeLatest: true
           removeArtifacts: true
       - uses: ./.github/actions/setup-java
-      - name: Merge releases back into main and set new snapshot version
+      - name: Print git base and head branch
+        run: |
+          echo "Git head branch: ${{ github.event.pull_request.base.ref }}"
+          echo "Git head branch: ${{ github.event.pull_request.head.ref }}"
+      - name: Merge releases back into head branch and set new snapshot version
         if: github.event.pull_request.base.ref == 'releases'
         run: |
           # Prepare git env
@@ -246,6 +210,17 @@ jobs:
       contents: read
     needs: [ release-version ]
     uses: ./.github/workflows/publish-swaggerhub.yaml
+    if: false
     with:
       downstream-version: ${{ needs.release-version.outputs.RELEASE_VERSION }}
     secrets: inherit
+
+  publish-openapi-to-gh-pages:
+    name: "Publish OpenAPI UI spec GitHub Pages"
+    permissions:
+      contents: write
+    needs: [ release-version ]
+    uses: ./.github/workflows/publish-openapi-ui.yml
+    secrets: inherit
+    with:
+      version: ${{ needs.release-version.outputs.RELEASE_VERSION }}

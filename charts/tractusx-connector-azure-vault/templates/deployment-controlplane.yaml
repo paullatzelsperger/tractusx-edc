@@ -176,6 +176,10 @@ spec:
               value: {{ .Values.controlplane.endpoints.catalog.port | quote }}
             - name: "WEB_HTTP_CATALOG_PATH"
               value: {{ .Values.controlplane.endpoints.catalog.path | quote }}
+            - name: "WEB_HTTP_CATALOG_AUTH_TYPE"
+              value: "tokenbased"
+            - name: "WEB_HTTP_CATALOG_AUTH_KEY"
+              value: {{ .Values.controlplane.endpoints.catalog.authKey | required ".Values.controlplane.endpoints.catalog.authKey is required" | quote }}
 
 
             #########
@@ -273,6 +277,16 @@ spec:
             - name: "EDC_DATASOURCE_EDR_URL"
               value: {{ tpl .Values.postgresql.jdbcUrl . | quote }}
 
+            # see extension https://github.com/eclipse-edc/FederatedCatalog/tree/main/extensions/store/sql/federated-catalog-cache-sql
+            - name: "EDC_DATASOURCE_FEDERATEDCATALOG_NAME"
+              value: "federatedcatalog"
+            - name: "EDC_DATASOURCE_FEDERATEDCATALOG_USER"
+              value: {{ .Values.postgresql.auth.username | required ".Values.postgresql.auth.username is required" | quote }}
+            - name: "EDC_DATASOURCE_FEDERATEDCATALOG_PASSWORD"
+              value: {{ .Values.postgresql.auth.password | required ".Values.postgresql.auth.password is required" | quote }}
+            - name: "EDC_DATASOURCE_FEDERATEDCATALOG_URL"
+              value: {{ tpl .Values.postgresql.jdbcUrl . | quote }}
+
             #############################
             ## IATP / STS / DIM CONFIG ##
             #############################
@@ -282,8 +296,10 @@ spec:
               value: {{ .Values.iatp.sts.oauth.client.id | required ".Values.iatp.sts.oauth.client.id is required" | quote}}
             - name: "EDC_IAM_STS_OAUTH_CLIENT_SECRET_ALIAS"
               value: {{ .Values.iatp.sts.oauth.client.secret_alias | required ".Values.iatp.sts.oauth.client.secret_alias is required" | quote}}
+            {{- if .Values.iatp.sts.dim.url }}
             - name: "TX_EDC_IAM_STS_DIM_URL"
-              value: {{ .Values.iatp.sts.dim.url | required ".Values.iatp.sts.dim.url is required" | quote}}
+              value: {{ .Values.iatp.sts.dim.url | quote}}
+            {{- end}}
 
             {{- range $index, $issuer := .Values.iatp.trustedIssuers }}
             - name: "EDC_IAM_TRUSTED-ISSUER_{{$index}}-ISSUER_ID"
