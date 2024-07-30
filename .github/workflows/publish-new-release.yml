@@ -63,7 +63,7 @@ jobs:
     permissions:
       contents: read
       packages: write
-    if: github.event.pull_request.merged == true && needs.release-version.outputs.RELEASE_VERSION
+    if: false &&  github.event.pull_request.merged == true && needs.release-version.outputs.RELEASE_VERSION
     uses: ./.github/workflows/trigger-maven-publish.yaml
     secrets: inherit
     with:
@@ -74,12 +74,12 @@ jobs:
     needs: [ release-version ]
     permissions:
       contents: write
-    if: github.event.pull_request.merged == true && needs.release-version.outputs.RELEASE_VERSION
+    if: false && github.event.pull_request.merged == true && needs.release-version.outputs.RELEASE_VERSION
 
     uses: ./.github/workflows/trigger-docker-publish.yaml
     secrets: inherit
     with:
-      docker_tag: ${{ env.RELEASE_VERSION }}
+      docker_tag: $RELEASE_VERSION
 
   # Release: Helm Charts
   helm-release:
@@ -91,7 +91,7 @@ jobs:
       packages: write
       pages: write
 
-    if: github.event.pull_request.merged == true && needs.release-version.outputs.RELEASE_VERSION
+    if: false && github.event.pull_request.merged == true && needs.release-version.outputs.RELEASE_VERSION
     steps:
       - name: Export RELEASE_VERSION env
         run: |
@@ -127,7 +127,7 @@ jobs:
   # Release: GitHub tag & release; Merges back releases into main; Starts a new development cycle;
   github-release:
     name: Publish new github release
-    needs: [ release-version, maven-release, docker-release, helm-release ]
+    needs: [ release-version ]
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -166,7 +166,11 @@ jobs:
           makeLatest: true
           removeArtifacts: true
       - uses: ./.github/actions/setup-java
-      - name: Merge releases back into main and set new snapshot version
+      - name: Print git base and head branch
+        run: |
+          echo "Git head branch: ${{ github.event.pull_request.base.ref }}"
+          echo "Git head branch: ${{ github.event.pull_request.head.ref }}"
+      - name: Merge releases back into head branch and set new snapshot version
         if: github.event.pull_request.base.ref == 'releases'
         run: |
           # Prepare git env
@@ -206,6 +210,7 @@ jobs:
       contents: read
     needs: [ release-version ]
     uses: ./.github/workflows/publish-swaggerhub.yaml
+    if: false
     with:
       downstream-version: ${{ needs.release-version.outputs.RELEASE_VERSION }}
     secrets: inherit
