@@ -2,11 +2,11 @@
 format.version = "1.1"
 
 [versions]
-edc = "0.8.2-20240805-SNAPSHOT"
+edc = "0.8.2-20240808-SNAPSHOT"
 
 assertj = "3.26.3"
-awaitility = "4.2.1"
-aws = "2.26.29"
+awaitility = "4.2.2"
+aws = "2.27.2"
 azure-identity = "1.13.2"
 azure-storage-blob = "12.27.0"
 bouncyCastle-jdk18on = "1.78.1"
@@ -21,9 +21,9 @@ opentelemetry = "2.6.0"
 postgres = "42.7.3"
 restAssured = "5.5.0"
 rsApi = "4.0.0"
-slf4j = "2.0.13"
+slf4j = "2.0.16"
 testcontainers = "1.20.1"
-tink = "1.14.0"
+tink = "1.14.1"
 titanium = "1.4.1"
 
 [libraries]
